@@ -84,7 +84,7 @@ namespace TuviBytesToEmailConverterLib
 
             if (result.Length > 64)
             {
-                throw new ArgumentException("Initial array is too big to create coorect email's name (name can not be longer than 64 symbols).", nameof(array));
+                throw new ArgumentException("Initial array is too big to create correct email's name (name can not be longer than 64 symbols).", nameof(array));
             }
 
             return result;
