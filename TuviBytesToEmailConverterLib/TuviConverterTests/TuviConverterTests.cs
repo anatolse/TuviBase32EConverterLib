@@ -7,10 +7,10 @@ namespace TuviConverterTests
     public class TuviConverterTests
     {
         [TestCase(new byte[] { 0, 0, 1 }, "aaaab")]
-        [TestCase(new byte[] { 31, 32, 33 }, "b6ibb")]
-        [TestCase(new byte[] { 233, 74, 89, 152, 12 }, "5ffftgam")]
-        [TestCase(new byte[] { 111, 29, 94, 201, 215, 75 }, "dpdvpmtv2l")]
-        [TestCase(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 }, "acaqdaqcqmbyibefawdanbyhraeiscmkbkfqxdamrugy4dupb6ibb")]
+        [TestCase(new byte[] { 31, 32, 33 }, "b8ibb")]
+        [TestCase(new byte[] { 233, 74, 89, 152, 12 }, "7fffvgan")]
+        [TestCase(new byte[] { 111, 29, 94, 201, 215, 75 }, "drdxrnvx4m")]
+        [TestCase(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 }, "acasdascsnb2ibefaydapb2htaeiucnkbkfszdantwg26dwrb8ibb")]
         public void BytesToString_CorrectConverting(byte[] array, string expectedResult)
         {
             TuviConverter converter = new TuviConverter();
@@ -34,11 +34,10 @@ namespace TuviConverterTests
             Assert.AreEqual(array, actualResult);
         }
 
-        [TestCase("aaah7", new byte[] { 0, 0, 255 })]
-        [TestCase("b6ibb", new byte[] { 31, 32, 33 })]
-        [TestCase("friend", new byte[] { 11, 20, 17, 163 })]
-        [TestCase("maroon5", new byte[] { 3, 1, 23, 57, 189 })]
-        [TestCase("hfbvmtj46djg7xvgdxxmoloe35fgjnmnfd73khj5fxfb2egloj2bx", new byte[] { 114, 134, 172, 154, 121, 225, 164, 223, 189, 76, 59, 221, 142, 91, 137, 190, 148, 201, 107, 26, 81, 255, 106, 58, 122, 91, 148, 58, 33, 150, 228, 232, 55 })]
+        [TestCase("aaah9", new byte[] { 0, 0, 255 })]
+        [TestCase("b8ibb", new byte[] { 31, 32, 33 })]
+        [TestCase("friend", new byte[] { 10, 244, 17, 131 })]
+        [TestCase("hfbxnvj68djg9zxgdzznqmqe57fgjpnpfd95khj7fzfb4egmqj4bz", new byte[] { 114, 134, 172, 154, 121, 225, 164, 223, 189, 76, 59, 221, 142, 91, 137, 190, 148, 201, 107, 26, 81, 255, 106, 58, 122, 91, 148, 58, 33, 150, 228, 232, 55 })]
         public void StringToBytes_CorrectConverting(string name, byte[] expectedResult)
         {
             TuviConverter converter = new TuviConverter();
@@ -48,8 +47,8 @@ namespace TuviConverterTests
 
         [TestCase("abc0")]
         [TestCase("abc1")]
-        [TestCase("abc8")]
-        [TestCase("abc9")]
+        [TestCase("abco")]
+        [TestCase("abcl")]
         [TestCase("abc.")]
         [TestCase("abc,")]
         [TestCase("abc?")]
