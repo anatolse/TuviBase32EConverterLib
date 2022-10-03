@@ -13,8 +13,7 @@ namespace TuviConverterTests
         [TestCase(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 }, "acasdascsnb2ibefaydapb2htaeiucnkbkfszdantwg26dwrb8ibb")]
         public void BytesToString_CorrectConverting(byte[] array, string expectedResult)
         {
-            Base32EConverter converter = new Base32EConverter();
-            var actualResult = converter.ConvertBytesToEmailName(array);
+            var actualResult = Base32EConverter.ConvertBytesToEmailName(array);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -29,8 +28,7 @@ namespace TuviConverterTests
         [TestCase(new byte[] { 138, 31, 192, 211, 234, 7, 77, 177, 54, 139 })]
         public void BytesToStringAndToBytes_CorrectConverting(byte[] array)
         {
-            Base32EConverter converter = new Base32EConverter();
-            var actualResult = converter.ConvertStringToByteArray(converter.ConvertBytesToEmailName(array));
+            var actualResult = Base32EConverter.ConvertStringToByteArray(Base32EConverter.ConvertBytesToEmailName(array));
             Assert.AreEqual(array, actualResult);
         }
 
@@ -40,8 +38,7 @@ namespace TuviConverterTests
         [TestCase("hfbxnvj68djg9zxgdzznqmqe57fgjpnpfd95khj7fzfb4egmqj4bz", new byte[] { 114, 134, 172, 154, 121, 225, 164, 223, 189, 76, 59, 221, 142, 91, 137, 190, 148, 201, 107, 26, 81, 255, 106, 58, 122, 91, 148, 58, 33, 150, 228, 232, 55 })]
         public void StringToBytes_CorrectConverting(string name, byte[] expectedResult)
         {
-            Base32EConverter converter = new Base32EConverter();
-            var actualResult = converter.ConvertStringToByteArray(name);
+            var actualResult = Base32EConverter.ConvertStringToByteArray(name);
             Assert.AreEqual(expectedResult, actualResult);
         }
 
@@ -75,25 +72,22 @@ namespace TuviConverterTests
         [TestCase("abc>")]
         public void StringToBytes_WrongSymbols_ThrowArgumentOutOfRangeException(string name)
         {
-            Base32EConverter converter = new Base32EConverter();
-            Assert.Throws<ArgumentOutOfRangeException>(() => converter.ConvertStringToByteArray(name),
+            Assert.Throws<ArgumentOutOfRangeException>(() => Base32EConverter.ConvertStringToByteArray(name),
                 message: "Not allowed symbol are used in email's name.");
         }
 
-        [TestCase("abcdefjhijklmnopqrstuvwxyz23434567abcdefjhijklmnopqrstuvwxyz23434567a")]
+        [TestCase("abcdefjhijkmnpqrstuvwxyz2343456789abcdefjhijkmnpqrstuvwxyz2343456789a")]
         [TestCase("fhsadjfhbdsfbajhfhwejghdbcnbdsjkghdjgdfg34hgvdjdjshgajhwsdgahfvjsfgkawuf")]
         public void StringToBytes_TooBigString_ThrowArgumentException(string name)
         {
-            Base32EConverter converter = new Base32EConverter();
-            Assert.Throws<ArgumentException>(() => converter.ConvertStringToByteArray(name),
+            Assert.Throws<ArgumentException>(() => Base32EConverter.ConvertStringToByteArray(name),
                 message: "Email's name is too big (name can not be longer than 64 symbols).");
         }
 
         [Test]
         public void StringToBytes_StringIsNull_ThrowArgumentNullException()
         {
-            Base32EConverter converter = new Base32EConverter();
-            Assert.Throws<ArgumentNullException>(() => converter.ConvertStringToByteArray(null),
+            Assert.Throws<ArgumentNullException>(() => Base32EConverter.ConvertStringToByteArray(null),
                 message: "Email's name can not be a null.");
         }
 
@@ -101,25 +95,22 @@ namespace TuviConverterTests
         [TestCase("   ")]
         public void StringToBytes_StringIsWhiteSpace_ThrowArgumentException(string name)
         {
-            Base32EConverter converter = new Base32EConverter();
-            Assert.Throws<ArgumentException>(() => converter.ConvertStringToByteArray(name),
+            Assert.Throws<ArgumentException>(() => Base32EConverter.ConvertStringToByteArray(name),
                 message: "Email's name can not be empty or whitespace.");
         }
 
         [Test]
         public void BytesToString_ArrayIsNull_ThrowArgumentNullException()
         {
-            Base32EConverter converter = new Base32EConverter();
-            Assert.Throws<ArgumentNullException>(() => converter.ConvertBytesToEmailName(null),
+            Assert.Throws<ArgumentNullException>(() => Base32EConverter.ConvertBytesToEmailName(null),
                 message: "Byte's array can not be a null.");
         }
 
         [Test]
         public void BytesToString_ArrayIsEmpty_ThrowArgumentException()
         {
-            Base32EConverter converter = new Base32EConverter();
             byte[] array = new byte[0];
-            Assert.Throws<ArgumentException>(() => converter.ConvertBytesToEmailName(array),
+            Assert.Throws<ArgumentException>(() => Base32EConverter.ConvertBytesToEmailName(array),
                 message: "Byte's array should contain at least 1 element.");
         }
 
@@ -127,8 +118,7 @@ namespace TuviConverterTests
         [TestCase(new byte[] { 55, 18, 194, 211, 6, 19, 168, 162, 43, 207, 12, 59, 114, 134, 172, 154, 121, 225, 164, 223, 189, 76, 59, 221, 142, 91, 137, 190, 148, 201, 107, 26, 81, 255, 106, 58, 122, 91, 148, 58, 33, 150, 228, 232, 55 })]
         public void BytesToString_TooBigArray_ThrowArgumentException(byte[] array)
         {
-            Base32EConverter converter = new Base32EConverter();
-            Assert.Throws<ArgumentException>(() => converter.ConvertBytesToEmailName(array),
+            Assert.Throws<ArgumentException>(() => Base32EConverter.ConvertBytesToEmailName(array),
                 message: "Initial array is too big (name can not be longer than 64 symbols).");
         }
     }

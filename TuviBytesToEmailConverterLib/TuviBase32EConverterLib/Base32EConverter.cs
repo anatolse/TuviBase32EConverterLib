@@ -7,19 +7,19 @@ namespace TuviBase32EConverterLib
     /// Allows to convert array of bytes to a string of symbols that can be an email name and vice versa. 
     /// Symbols dictionary is [abcdefghijkmnpqrstuvwxyz23456789]. 1 and l, 0 and o looks similar so they were deleted.
     /// </summary>
-    public class Base32EConverter
+    public static class Base32EConverter
     {
         private const int MaxEmailNameSize = 64;
         private const int ByteSize = 8;
         private const int FiveBitsSize = 5;
-        private const string base32EDictionary = "abcdefghijkmnpqrstuvwxyz23456789";
+        private const string Base32EDictionary = "abcdefghijkmnpqrstuvwxyz23456789";
 
         /// <summary>
         /// Convert array of bytes to a string
         /// </summary>
         /// <param name="array">Convert array of bytes.</param>
         /// <returns>String that can be an email's name.</returns>
-        public string ConvertBytesToEmailName(byte[] array)
+        public static string ConvertBytesToEmailName(byte[] array)
         {
             if (array is null)
             {
@@ -45,7 +45,7 @@ namespace TuviBase32EConverterLib
         /// </summary>
         /// <param name="name">String of allowed symbols.</param>
         /// <returns>Array of bytes.</returns>
-        public byte[] ConvertStringToByteArray(string name)
+        public static byte[] ConvertStringToByteArray(string name)
         {
             if (name is null)
             {
@@ -78,7 +78,7 @@ namespace TuviBase32EConverterLib
         /// </summary>
         /// <param name="array">Initial array.</param>
         /// <returns>Array of 5-bit groups.</returns>
-        private byte[] ConvertEightToFiveBits(byte[] array)
+        private static byte[] ConvertEightToFiveBits(byte[] array)
         {
             if (array is null)
             {
@@ -116,7 +116,7 @@ namespace TuviBase32EConverterLib
         /// </summary>
         /// <param name="array">Array of 5-bit groups.</param>
         /// <returns>Array of bytes (8-bit groups).</returns>
-        private byte[] ConvertFiveToEightBits(byte[] array)
+        private static byte[] ConvertFiveToEightBits(byte[] array)
         {
             if (array is null)
             {
@@ -158,18 +158,18 @@ namespace TuviBase32EConverterLib
             }
         }
 
-        private char ConvertByteToSymbol(byte byteValue)
+        private static char ConvertByteToSymbol(byte byteValue)
         {
             if (byteValue >= 32)
             {
                 throw new ArgumentOutOfRangeException(nameof(byteValue));
             }
-            return base32EDictionary[byteValue];
+            return Base32EDictionary[byteValue];
         }
 
-        private byte ConvertSymbolToBits(char symbol)
+        private static byte ConvertSymbolToBits(char symbol)
         {
-            int value = base32EDictionary.IndexOf(symbol);
+            int value = Base32EDictionary.IndexOf(symbol);
             if (value == -1)
             {
                 throw new ArgumentOutOfRangeException(nameof(symbol));

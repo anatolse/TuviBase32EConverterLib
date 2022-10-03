@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TuviBase32EConverterLib\TuviBase32EConverterLib.csproj" />
-    <ProjectReference Include="..\TuviBytesToEmailConverterLib\TuviBytesToEmailConverterLib.csproj" />
   </ItemGroup>
 
 </Project>
