@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuviBytesToEmailConverterLib", "TuviBytesToEmailConverterLib\TuviBytesToEmailConverterLib.csproj", "{F88E3C1E-2CCA-403B-ABDB-2501410AC68D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TuviBytesToEmailConverterLib", "TuviBytesToEmailConverterLib\TuviBytesToEmailConverterLib.csproj", "{F88E3C1E-2CCA-403B-ABDB-2501410AC68D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuviConverterTests", "TuviConverterTests\TuviConverterTests.csproj", "{58492776-9F5B-4EEE-8779-88F44BD42B3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TuviConverterTests", "TuviConverterTests\TuviConverterTests.csproj", "{58492776-9F5B-4EEE-8779-88F44BD42B3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuviBase32EConverterLib", "TuviBase32EConverterLib\TuviBase32EConverterLib.csproj", "{31A12647-8618-47A1-8661-31AE7CC1041C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{58492776-9F5B-4EEE-8779-88F44BD42B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58492776-9F5B-4EEE-8779-88F44BD42B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58492776-9F5B-4EEE-8779-88F44BD42B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A12647-8618-47A1-8661-31AE7CC1041C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A12647-8618-47A1-8661-31AE7CC1041C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A12647-8618-47A1-8661-31AE7CC1041C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A12647-8618-47A1-8661-31AE7CC1041C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

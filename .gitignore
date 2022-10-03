@@ -1,5 +1,7 @@
 /.vs
 /TuviBytesToEmailConverterLib/.vs
+/TuviBytesToEmailConverterLib/TuviBase32EConverterLib/bin
+/TuviBytesToEmailConverterLib/TuviBase32EConverterLib/obj
 /TuviBytesToEmailConverterLib/TuviBytesToEmailConverterLib/bin
 /TuviBytesToEmailConverterLib/TuviBytesToEmailConverterLib/obj
 /TuviBytesToEmailConverterLib/TuviConverterTests/bin
