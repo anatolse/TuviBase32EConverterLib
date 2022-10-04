@@ -35,9 +35,13 @@ Also converter has possibility to do the same in opposite direction.
 Code examples
 
 `byte[] array = new byte[]{31,32,33};`
+
 `string result = Base32EConverter.ConvertBytesToEmailName(array);`
+
 `// result = "b8ibb"`
 
 `string name = "friend";`
+
 `byte[] result = Base32EConverter.ConvertStringToByteArray(name);`
+
 `// result = { 10, 244, 17, 131 }`
