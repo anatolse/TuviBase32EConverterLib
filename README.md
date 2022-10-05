@@ -1,7 +1,8 @@
 # TuviBytesToEmailConverterLib
 Base32EConverter can convert byte array into a string that can be an email name and vice versa.
 
-*Problem*
+Problem
+
 You have a database/list of clients/employees/records etc. Each record have a specific field that represented as array of bytes. 
 It cab ne identifier/public key/account number etc. And you have to create email address based on that specific field.
 
@@ -14,7 +15,8 @@ Our software solve this task. Email naming has some restrictions:
 With the above in mind we chose next alphabet: abcdefghijkmnpqrstuvwxyz23456789
 It's power 32 = 2^5 allows to use more simple and understandable algorithm of converting. Alphabet does not contain any special symbol or symbols that looks similar (such as o and 0 or 1 and l).
 
-*Algorithm*
+Algorithm
+
 Array of bytes is treated as sequence of bits. We divide this sequence in groups of 5 bits from it's end. If the first group is shorter than 5 bits, consider it filled with leading zeros.
 Then each group is changed to an according symbol of our alphabet. Finally we unite all symbols into a string. And vice versa.
 
@@ -30,11 +32,16 @@ b.8.i.b.b and string "b8ibb".
 
 Also converter has possibility to do the same in opposite direction.
 
-*Code examples*
+Code examples
+
 `byte[] array = new byte[]{31,32,33};`
+
 `string result = Base32EConverter.ConvertBytesToEmailName(array);`
+
 `// result = "b8ibb"`
 
 `string name = "friend";`
+
 `byte[] result = Base32EConverter.ConvertStringToByteArray(name);`
+
 `// result = { 10, 244, 17, 131 }`
