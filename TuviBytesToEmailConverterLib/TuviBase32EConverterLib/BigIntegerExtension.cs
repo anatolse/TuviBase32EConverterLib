@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Numerics;
-using System.Text;
 
 namespace TuviBase32EConverterLib
 {
+    /// <summary>
+    /// Extra function to work with BigInteger.
+    /// </summary>
     public static class BigIntegerExtension
     {
+        /// <summary>
+        /// Concatenate byte array to a BigInteger number with big-endian format.
+        /// Can be used as "BigInteger ctor" with big-endian format.
+        /// </summary>
+        /// <param name="number">Initial BigInteger.</param>
+        /// <param name="array">Byte array.</param>
+        /// <returns>Resulting BigInteger.</returns>
         public static BigInteger ConcatBytes(this BigInteger number, byte[] array)
         {
             for (int i = 0; i < array.Length; i++)
@@ -18,6 +26,11 @@ namespace TuviBase32EConverterLib
             return number;
         }
 
+        /// <summary>
+        /// Converting BigInteger into byte array with big-endian format.
+        /// </summary>
+        /// <param name="number">BigInteger number.</param>
+        /// <returns>Byte array with big-endian format.</returns>
         public static byte[] ToStraightByteArray(this BigInteger number)
         {
             BigInteger temp = number;

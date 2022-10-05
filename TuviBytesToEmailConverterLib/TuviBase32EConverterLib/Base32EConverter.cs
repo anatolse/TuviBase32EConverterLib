@@ -4,7 +4,7 @@ using System.Numerics;
 namespace TuviBase32EConverterLib
 {
     /// <summary>
-    /// Allows to convert array of bytes to a string of symbols that can be an email name and vice versa. 
+    /// Allows to convert byte array to a string of symbols that can be an email name and vice versa. 
     /// Symbols dictionary is [abcdefghijkmnpqrstuvwxyz23456789]. 1 and l, 0 and o looks similar so they were deleted.
     /// </summary>
     public static class Base32EConverter
@@ -15,9 +15,9 @@ namespace TuviBase32EConverterLib
         private const string Base32EDictionary = "abcdefghijkmnpqrstuvwxyz23456789";
 
         /// <summary>
-        /// Convert array of bytes to a string
+        /// Convert byte array to a string
         /// </summary>
-        /// <param name="array">Convert array of bytes.</param>
+        /// <param name="array">Converting byte array.</param>
         /// <returns>String that can be an email's name.</returns>
         public static string ConvertBytesToEmailName(byte[] array)
         {
@@ -41,7 +41,7 @@ namespace TuviBase32EConverterLib
         }
 
         /// <summary>
-        /// Converts string to an array of bytes.
+        /// Converts string to an byte array.
         /// </summary>
         /// <param name="name">String of allowed symbols.</param>
         /// <returns>Array of bytes.</returns>
@@ -112,7 +112,7 @@ namespace TuviBase32EConverterLib
         }
 
         /// <summary>
-        /// Concats groups of 5 bits into a sequense. Represents it as an array of bytes (groups of 8 bits).
+        /// Concats groups of 5 bits into a sequense. Represents it as an byte array (groups of 8 bits).
         /// </summary>
         /// <param name="array">Array of 5-bit groups.</param>
         /// <returns>Array of bytes (8-bit groups).</returns>
@@ -142,7 +142,7 @@ namespace TuviBase32EConverterLib
                 number |= array[i];
             }
 
-            byte[] tempArray = number.ToStraightByteArray(); // тут проверить
+            byte[] tempArray = number.ToStraightByteArray();
             if (tempArray.Length >= resultArray.Length)
             {
                 return tempArray;
