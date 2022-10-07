@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Numerics;
 
-namespace TuviBase32EConverterLib
+namespace Base32EConverterLib
 {
     /// <summary>
     /// Extra function to work with BigInteger.
@@ -15,7 +15,7 @@ namespace TuviBase32EConverterLib
         /// <param name="number">Initial BigInteger.</param>
         /// <param name="array">Byte array.</param>
         /// <returns>Resulting BigInteger.</returns>
-        public static BigInteger ConcatBytes(this BigInteger number, byte[] array)
+        public static BigInteger BigEndianConcatBytes(this BigInteger number, byte[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -31,7 +31,7 @@ namespace TuviBase32EConverterLib
         /// </summary>
         /// <param name="number">BigInteger number.</param>
         /// <returns>Byte array with big-endian format.</returns>
-        public static byte[] ToStraightByteArray(this BigInteger number)
+        public static byte[] ToBigEndianByteArray(this BigInteger number)
         {
             BigInteger temp = number;
             List<byte> result = new List<byte>();

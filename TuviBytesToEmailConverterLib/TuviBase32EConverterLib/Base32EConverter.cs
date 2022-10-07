@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace TuviBase32EConverterLib
+namespace Base32EConverterLib
 {
     /// <summary>
     /// Allows to convert byte array to a string of symbols that can be an email name and vice versa. 
@@ -98,13 +98,13 @@ namespace TuviBase32EConverterLib
 
             int currentPosition = size - 1;
             byte[] result = new byte[size];
-            BigInteger number = new BigInteger(0);
-            number = number.ConcatBytes(array);
-            while (number != 0 && currentPosition >= 0)
+            BigInteger bitSequence = new BigInteger(0);
+            bitSequence = bitSequence.BigEndianConcatBytes(array);
+            while (bitSequence != 0 && currentPosition >= 0)
             {
-                byte lastFiveBits = (byte)(number & 31);
+                byte lastFiveBits = (byte)(bitSequence & 31);
                 result[currentPosition] = lastFiveBits;
-                number = number >> FiveBitsSize;
+                bitSequence = bitSequence >> FiveBitsSize;
                 currentPosition--;
             }
 
@@ -142,7 +142,7 @@ namespace TuviBase32EConverterLib
                 number |= array[i];
             }
 
-            byte[] tempArray = number.ToStraightByteArray();
+            byte[] tempArray = number.ToBigEndianByteArray();
             if (tempArray.Length >= resultArray.Length)
             {
                 return tempArray;

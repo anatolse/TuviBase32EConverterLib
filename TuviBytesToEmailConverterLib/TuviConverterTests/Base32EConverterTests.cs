@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using System;
-using TuviBase32EConverterLib;
+using Base32EConverterLib;
 
-namespace TuviConverterTests
+namespace Base32EConverterTests
 {
     public class Base32EConverterTests
     {
@@ -115,6 +115,7 @@ namespace TuviConverterTests
         }
 
         [TestCase(new byte[] { 114, 134, 172, 154, 121, 225, 164, 223, 189, 76, 59, 221, 142, 91, 137, 190, 148, 201, 107, 26, 81, 255, 106, 58, 122, 91, 148, 58, 33, 150, 228, 232, 55, 77, 34, 127, 198, 4, 15, 251, 9, 66, 112, 183, 71 })]
+        [TestCase(new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 164, 223, 189, 76, 59, 221, 142, 91, 137, 190, 148, 201, 107, 26, 81, 255, 106, 58, 122, 91, 148, 58, 33, 150, 228, 232, 55, 77, 34, 127, 198, 4, 15, 251, 9, 66, 112, 183, 71 })]
         [TestCase(new byte[] { 55, 18, 194, 211, 6, 19, 168, 162, 43, 207, 12, 59, 114, 134, 172, 154, 121, 225, 164, 223, 189, 76, 59, 221, 142, 91, 137, 190, 148, 201, 107, 26, 81, 255, 106, 58, 122, 91, 148, 58, 33, 150, 228, 232, 55 })]
         public void BytesToString_TooBigArray_ThrowArgumentException(byte[] array)
         {

@@ -1,4 +1,4 @@
-# TuviBytesToEmailConverterLib
+# Base32EConverterLib
 Base32EConverter can convert byte array into a string that can be an email name and vice versa.
 
 Problem
