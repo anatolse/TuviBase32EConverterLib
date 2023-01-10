@@ -106,14 +106,19 @@ namespace Tuvi.Base32EConverterLib
                 throw new ArgumentException("Array should contain at least 1 element.");
             }
 
-            int size = array.Length * ByteSize % FiveBitsSize == 0 ? array.Length * ByteSize / FiveBitsSize : array.Length * ByteSize / FiveBitsSize + 1;
-            if (size > MaxEmailNameSize)
+            var sizeInBits = array.Length * ByteSize;
+            int resultSizeInBytes = sizeInBits / FiveBitsSize;
+            if (sizeInBits % FiveBitsSize != 0)
+            {
+                ++resultSizeInBytes;
+            }
+            if (resultSizeInBytes > MaxEmailNameSize)
             {
                 throw new ArgumentException($"Initial array is too big to create correct email's name (name can not be longer than {MaxEmailNameSize} symbols).", nameof(array));
             }
 
-            int currentPosition = size - 1;
-            byte[] result = new byte[size];
+            int currentPosition = resultSizeInBytes - 1;
+            byte[] result = new byte[resultSizeInBytes];
             BigInteger bitSequence = new BigInteger(0);
             bitSequence = bitSequence.BigEndianConcatBytes(array);
             while (bitSequence != 0 && currentPosition >= 0)
@@ -167,7 +172,7 @@ namespace Tuvi.Base32EConverterLib
             {
                 for (int i = 1; i <= tempArray.Length; i++)
                 {
-                    resultArray[size - i] = tempArray[tempArray.Length  -  i];
+                    resultArray[size - i] = tempArray[tempArray.Length - i];
                 }
 
                 return resultArray;
